@@ -1,0 +1,73 @@
+@font-face {
+    font-family: Agdasima ;
+    src: url(/src/font/Agdasima-Regular.ttf);
+}
+body{
+    font-family: Agdasima;
+    color: rgb(15, 11, 141);
+}
+h1{
+    font-size: 5rem;
+}
+label{
+    font-size: 1.5rem;
+}
+.players{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.names{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30vw;
+    
+}
+.player-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-evenly;
+    height: 100px;
+}
+.game{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    height: 350px;
+} 
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5rem;
+    width: 9vw;
+    height: 115px;
+    border-right: 2px solid rgb(15, 11, 141);
+    border-bottom: 2px solid rgb(15, 11, 141);
+} 
+.right{
+    border-right: none;
+}
+.bottom{
+    border-bottom: none;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 100vh;
+}
+.score{
+    width: 30px;
+}
+#winner{
+    font-size: 2.5rem;
+}
