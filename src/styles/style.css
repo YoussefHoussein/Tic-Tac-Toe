@@ -40,6 +40,7 @@ label{
     justify-content: center;
     width: 30vw;
     height: 350px;
+    pointer-events: none;
 } 
 .box{
     display: flex;
@@ -67,6 +68,7 @@ label{
 }
 .score{
     width: 30px;
+    pointer-events: none;
 }
 #winner{
     font-size: 2.5rem;
