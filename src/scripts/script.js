@@ -5,6 +5,7 @@ let player2_score = document.getElementById("score-y")
 let winner = document.getElementById("winner")
 let box = Array.from(document.getElementsByClassName("box")) 
 let game = document.getElementsByClassName("game")[0]
+let restart_btn = document.getElementById("restart")
 
 const X ="x"
 const O ="o"
@@ -30,6 +31,7 @@ player1_name.addEventListener('change', function (e) {
         game.style.pointerEvents ="auto"
         winner.innerText = player1_name.value + " turn"
         player1_name.style.pointerEvents="none"
+        player2_name.style.pointerEvents="none"
     }
 })
 player2_name.addEventListener('change', function (e) {
@@ -37,10 +39,11 @@ player2_name.addEventListener('change', function (e) {
     if(player1_name_in && player2_name_in){
         game.style.pointerEvents ="auto"
         winner.innerText = player1_name.value + " turn"
+        player2_name.style.pointerEvents="none"
         player1_name.style.pointerEvents="none"
     }
 })
-
+restart_btn.addEventListener('click',restart)
 function start(){
     for(let i =0; i<box.length;i++){
         box[i].addEventListener('click', boxClicked)
@@ -55,19 +58,16 @@ function boxClicked(e){
         current_player = changePlayer(current_player,X,O)
     }
     if(checkFull()){
-        winner.innerText = "Draw! "
-        restart()  
+        winner.innerText = "Draw! " 
     }
     let winner_value = playerWon()
     if(winner_value == X){
         winner.innerText = player1_name.value+" Wons!"
         player1_score.value++
-        restart()
     }
     else if(winner_value == O){
         winner.innerText=player2_name.value+ " Wons!"
         player2_score.value++
-        restart()
     }
 }
 
@@ -96,7 +96,8 @@ function restart(){
         box[i].innerText =""
     }
     current_player = X
-    
+    winner.innerText=current_player + " turn"
+    game.style.pointerEvents="auto"
 }
 function playerWon(){
     for(let i =0;i<winning.length;i++){
@@ -104,6 +105,7 @@ function playerWon(){
         let second_box = winning[i][1]
         let third_box = winning[i][2]
         if(free_boxes[first_box] && (free_boxes[first_box] == free_boxes[second_box] && free_boxes[first_box] == free_boxes[third_box] )){
+            game.style.pointerEvents="none"
             return free_boxes[first_box]
         }
     }

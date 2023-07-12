@@ -73,3 +73,9 @@ label{
 #winner{
     font-size: 2.5rem;
 }
+#restart{
+    background-color: rgb(15, 11, 141);
+    width: 100px;
+    height: 40px;
+    color: white;
+}
