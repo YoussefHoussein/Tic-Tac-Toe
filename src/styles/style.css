@@ -34,6 +34,7 @@ label{
     height: 100px;
 }
 .game{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -78,4 +79,52 @@ label{
     width: 100px;
     height: 40px;
     color: white;
+}
+.strike{
+    position: absolute;
+    background-color: black;
+}
+.s-0-1-2{
+    width: 90%;
+    height: 5px;
+    top: 17%;
+}
+.s-3-4-5{
+    width: 90%;
+    height: 5px;
+    top: 50.5%;
+}
+.s-6-7-8{
+    width: 90%;
+    height: 5px;
+    top: 84%;
+}
+.s-0-3-6{
+    width: 5px;
+    height: 100%;
+    left: 19%;
+}
+.s-1-4-7{
+    width: 5px;
+    height: 100%;
+    left: 49.5%;
+}
+.s-2-5-8{
+    width: 5px;
+    height: 100%;
+    left: 80%;
+}
+.s-0-4-8{
+    width: 80%;
+    height: 4px;
+    top: 50%;
+    left: 8%;
+    transform: skewY(40deg);
+}
+.s-2-4-6{
+    width: 80%;
+    height: 4px;
+    top: 50%;
+    left: 10%;
+    transform: skewY(-40deg);
 }

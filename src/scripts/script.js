@@ -6,7 +6,7 @@ let winner = document.getElementById("winner")
 let box = Array.from(document.getElementsByClassName("box")) 
 let game = document.getElementsByClassName("game")[0]
 let restart_btn = document.getElementById("restart")
-
+let strike = document.getElementById("line")
 const X ="x"
 const O ="o"
 
@@ -23,6 +23,7 @@ const winning =[
     [0,4,8],
     [2,4,6],
 ]
+console.log(strike.style.class)
 let player1_name_in =false
 let player2_name_in =false
 player1_name.addEventListener('change', function (e) {
@@ -61,13 +62,19 @@ function boxClicked(e){
         winner.innerText = "Draw! " 
     }
     let winner_value = playerWon()
-    if(winner_value == X){
+    console.log(winner_value)
+    if(free_boxes[winner_value[0]] == X){
         winner.innerText = player1_name.value+" Wons!"
         player1_score.value++
+        let className = "strike s-"+winner_value[0]+"-"+winner_value[1]+"-"+winner_value[2]
+        strike.setAttribute("class", className)
     }
-    else if(winner_value == O){
+    else if(free_boxes[winner_value[0]]  == O){
         winner.innerText=player2_name.value+ " Wons!"
         player2_score.value++
+        let className = "strike s-"+winner_value[0]+"-"+winner_value[1]+"-"+winner_value[2]
+        console.log(className)
+        strike.setAttribute("class", className)
     }
 }
 
@@ -96,8 +103,9 @@ function restart(){
         box[i].innerText =""
     }
     current_player = X
-    winner.innerText=current_player + " turn"
+    winner.innerText=player1_name.value + " turn"
     game.style.pointerEvents="auto"
+    strike.setAttribute("class", "strike")
 }
 function playerWon(){
     for(let i =0;i<winning.length;i++){
@@ -106,7 +114,7 @@ function playerWon(){
         let third_box = winning[i][2]
         if(free_boxes[first_box] && (free_boxes[first_box] == free_boxes[second_box] && free_boxes[first_box] == free_boxes[third_box] )){
             game.style.pointerEvents="none"
-            return free_boxes[first_box]
+            return [first_box,second_box,third_box]
         }
     }
     return -1;
